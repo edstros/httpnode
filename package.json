@@ -1,0 +1,25 @@
+{
+  "name": "httpnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test-unit": "mocha test/unit --recursive",
+    "test-integration": "mocha test/integration --recursive",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edstros/httpnode.git"
+  },
+  "author": "Edwin Acevedo <edwin.a.acevedo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edstros/httpnode/issues"
+  },
+  "homepage": "https://github.com/edstros/httpnode#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
