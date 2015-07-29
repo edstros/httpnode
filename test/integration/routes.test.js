@@ -1,9 +1,8 @@
 var expect = require('chai').expect;
 var http = require('http');
 var path = require('path');
-
 describe('Routes', function () {
-  this.timeout(30000);//longer to ensure there is enough time to
+  this.timeout(30000); //longer to ensure there is enough time to
   var port = Math.floor(Math.random() * 50000 + 10000);
   var url = 'http://localhost:' + port;
   before(function () {
@@ -16,10 +15,7 @@ describe('Routes', function () {
         .on('data', function (chunk) {
           body += chunk;
         })
-        /* .on('end', function () {
-           expect(body).to.contain('temperature');*/
       done();
-      /*  });*/
     });
   });
   it('should respond to the /starwarsmovies route', function (done) {
@@ -29,10 +25,17 @@ describe('Routes', function () {
         .on('data', function (chunk) {
           body += chunk;
         })
-        /*     .on('end', function () {
-               expect(body).to.contain('temperature');*/
       done();
-      /* });*/
+    });
+  });
+    it('should not respond to the /nonexistent route', function (done) {
+    http.get(url + '/nonexistent', function (res) {
+      expect(res.statusCode).to.equal(404);
+      res
+        .on('data', function (chunk) {
+          body += chunk;
+        })
+      done();
     });
   });
 });
